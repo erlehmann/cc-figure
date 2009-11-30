@@ -5,7 +5,7 @@ Plugin URI:
 Description: 
 Author: Nils Dagsson Moskopp (erlehmann)
 Author URI: http://dieweltistgarnichtso.net/
-Version: 0.3.3
+Version: 0.4
 */
 
 /* install and uninstall */

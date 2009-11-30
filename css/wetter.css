@@ -1,12 +1,8 @@
-[itemscope=itemscope] {
-    display: block;
-}
-
+[itemscope=itemscope],
 [itemscope=itemscope] dd,
 [itemscope=itemscope] dt {
     display: block;
     margin: 0;
-    padding: 0;
 }
 
 [itemscope=itemscope] [itemprop=work] {

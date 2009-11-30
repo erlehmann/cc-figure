@@ -1,6 +1,7 @@
 [itemscope="itemscope"] {
     display: block;
     position: relative;
+    margin: 0;
     top: 0px;
     left: 0px;
 }
@@ -9,7 +10,6 @@
 [itemscope=itemscope] dt {
     display: block;
     margin: 0;
-    padding: 0;
 }
 
 [itemscope="itemscope"] [itemprop=work] {

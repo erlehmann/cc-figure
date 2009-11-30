@@ -8,7 +8,7 @@
 [itemscope=itemscope] [itemprop=work] {
     border: 1px solid #888A85;
     display: block;
-    margin-bottom: 3px;
+    margin: auto auto 0.5em;
 }
 
 [itemscope=itemscope] dt {

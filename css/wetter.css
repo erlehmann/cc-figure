@@ -2,6 +2,13 @@
     display: block;
 }
 
+[itemscope=itemscope] dd,
+[itemscope=itemscope] dt {
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
 [itemscope=itemscope] [itemprop=work] {
     border: 1px solid #888A85;
     display: block;

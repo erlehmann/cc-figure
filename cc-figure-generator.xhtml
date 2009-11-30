@@ -163,7 +163,7 @@ function updateMedia() {
     var NewElement = getMediaType(document.getElementById("file").value);
     var newNode = document.createElement(NewElement);
     newNode.setAttribute("src", document.getElementById("file").value);
-    newNode.setAttribute("itemprop", "about");
+    newNode.setAttribute("itemprop", "work");
 
     if (NewElement == "img") {
         newNode.setAttribute("alt", document.getElementById("alttext").value);
@@ -194,6 +194,7 @@ function getMediaType(src) {
       {
         switch(extension) {
             case "bmp":
+            case "dib":
             case "gif":
             case "jpeg":
             case "jpg":
@@ -338,14 +339,14 @@ function updateLicense() {
 
     <div id="preview">
 
-<figure itemscope="itemscope">
+<figure itemscope="itemscope" itemtype="http://n.whatwg.org/work">
     <dd id="work-item">
     </dd>
     <dt id="caption-item">
-        <span id="title-item"/>
-        <a id="author-item" href=""/>
+        <span id="title-item" itemprop="title"/>
+        <a id="author-item" href="" itemprop="author"/>
         <small>
-            <a id="license-item" href="">
+            <a id="license-item" href="" itemprop="license">
                 <abbr id="license-abbr-item" title=""/>
             </a>
         </small>

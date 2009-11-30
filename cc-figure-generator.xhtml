@@ -108,8 +108,6 @@ form em {
 function insertMarkup() {
     var textMarkup = document.getElementById("preview").innerHTML.replace(" xmlns=\"http://www.w3.org/1999/xhtml\"","").replace(" id=\"work-item\"","").replace(" id=\"caption-item\"","").replace(" id=\"title-item\"","").replace(" id=\"author-item\"","").replace(" id=\"license-item\"","").replace(" id=\"license-abbr-item\"",""); // ugly hack to remove unnecessary cruft
 
-    alert(textMarkup);
-
     var textField = window.opener.document.post.content;
 
     if (textField.selectionStart || textField.selectionStart == '0') {

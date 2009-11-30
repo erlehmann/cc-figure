@@ -16,22 +16,22 @@
     display: block;
 }
 
-[itemscope="itemscope"] legend {
+[itemscope="itemscope"] dt {
     display: block;
     line-height: 22px;
     margin-top: -22px;
 }
 
-[itemscope="itemscope"] legend:hover {
+[itemscope="itemscope"] dt:hover {
     color: inherit;
     width: 100%;
 }
 
-    [itemscope="itemscope"] legend [itemprop=title] {
+    [itemscope="itemscope"] dt [itemprop=title] {
         display: none;
     }
 
-    [itemscope="itemscope"] legend [itemprop=author] {
+    [itemscope="itemscope"] dt [itemprop=author] {
         background: rgba(190, 190, 190, 0.6);
         color: inherit;
         display: none;
@@ -40,35 +40,35 @@
         padding-right: 0.5em;
     }
 
-    [itemscope="itemscope"] legend:hover [itemprop=author] {
+    [itemscope="itemscope"] dt:hover [itemprop=author] {
         display: inline-block;
     }
 
-    [itemscope="itemscope"] legend small {
+    [itemscope="itemscope"] dt small {
         background: rgba(190, 190, 190, 0.6);
         left: 0px;
         position: absolute;
     }
 
-    [itemscope="itemscope"] legend:hover small {
+    [itemscope="itemscope"] dt:hover small {
         bottom: 0px;
     }
 
-    [itemscope="itemscope"] legend small,
-    [itemscope="itemscope"] legend small a,
-    [itemscope="itemscope"] legend small a abbr {
+    [itemscope="itemscope"] dt small,
+    [itemscope="itemscope"] dt small a,
+    [itemscope="itemscope"] dt small a abbr {
         border: none !important;
         display: inline-block;
         height: 22px;
         width: 22px;
     }
 
-        [itemscope="itemscope"] legend small a {
+        [itemscope="itemscope"] dt small a {
             color: transparent;
             overflow: hidden;
         }
 
-        [itemscope="itemscope"] legend small a[href^="http://creativecommons.org/licenses/"] {
+        [itemscope="itemscope"] dt small a[href^="http://creativecommons.org/licenses/"] {
             background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAQAAABuvaSwAAAAAnNCSVQICFXsRgQAAAAJcEhZcwAABJ0AAASdAXw0a6EAAAAZdEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwaAAABmklEQVQoz5XTPWiTURTG8d8b/GjEii2VKoqKi2DFwU9wUkTdFIeKIEWcpIOTiA4OLgVdXFJwEZHoIII0TiJipZJFrIgGKXQQCRg6RKREjEjMcQnmTVPB3jNc7j1/7nk49zlJ+P+1rPsqydqFD1HvSkUq9MkpaQihoWRcfzqftGUkx9y10Yy33vlttz2GzBmNQtfLrmqqGu6odNKccOvvubXt1/Da+tAZBkwKx1OwHjNqti1EQ7DBN2Vr2vBl4cJiaAjOCdfbcMF3mWC7O6qmDFntms9KzgYZNU/bcFkxBM+UjXjiilFNl4yZsCIoqrRgA0IuGNRws1W66H1KSE5YFzKoa+pFTV0/ydYk66s+kt5kE1ilqd7qs49KIcj75bEfxp0RJn0yKxtMm21rzmtYG6x0Wt5Fy4ODbhuzJejx06M2PCzc+2frbgjn0z9YEE4tih7Q8FyShgdVzRvpQk+omLe5wxvBIV+ECTtkQpCx00Oh4ugCI7XcfF8INa9MqQnhQdrRSedYJYcdsc9eTHvjRbzsyC5lBjNLYP0B5PQk1O2dJT8AAAAASUVORK5CYII=");
             background-position: 0px center;
             background-repeat: no-repeat;

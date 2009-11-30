@@ -221,16 +221,16 @@ function getMediaType(src) {
 }
 
 function updateCredits() {
-    document.getElementsBySelector('[itemprop=title]')[0].textContent = document.getElementById("title").value;
-    document.getElementsBySelector('[itemprop=author]')[0].textContent = document.getElementById("author").value;
-    document.getElementsBySelector('[itemprop=author]')[0].href = document.getElementById("source").value;
+    document.getElementById("title-item").textContent = document.getElementById("title").value;
+    document.getElementById("author-item").textContent = document.getElementById("author").value;
+    document.getElementById("author-item").href = document.getElementById("source").value;
 
     updateButton();
 }
 
 function updateLicense() {
 
-    var ccAbbr = document.getElementsByTagName("abbr").item(5);
+    var ccAbbr = document.getElementById("license-abbr-item");
     var ccLicense = "http://creativecommons.org/licenses/REPLACE/3.0/de/";
 
     switch(document.getElementById("cc-license").value) {
@@ -266,7 +266,7 @@ function updateLicense() {
             break;
     }
 
-    ccAbbr.parentNode.href = ccLicense;
+    document.getElementById("license-item").href = ccLicense;
 }
 
         ]]>
@@ -343,14 +343,14 @@ function updateLicense() {
     <div id="preview">
 
 <figure itemscope="itemscope">
-    <dd>
+    <dd id="work-item">
     </dd>
-    <dt>
-        <span itemprop="title"/>
-        <a itemprop="author" href=""/>
+    <dt id="caption-item">
+        <span id="title-item"/>
+        <a id="author-item" href=""/>
         <small>
-            <a itemprop="license" href="">
-                <abbr title=""/>
+            <a id="license-item" href="">
+                <abbr id="license-abbr-item" title=""/>
             </a>
         </small>
     </dt>

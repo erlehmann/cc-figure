@@ -106,7 +106,8 @@ form em {
 
 // insert text into the editor window
 function insertMarkup() {
-    var textMarkup = document.getElementById("preview").innerHTML.replace(" xmlns=\"http://www.w3.org/1999/xhtml\"","").replace(" id=\"work-item\"","").replace(" id=\"caption-item\"","").replace(" id=\"title-item\"","").replace(" id=\"author-item\"","").replace(" id=\"license-item\"","").replace(" id=\"license-abbr-item\"",""); // ugly hack to remove unnecessary cruft
+    // ugly hack to remove unnecessary cruft
+    var textMarkup = document.getElementById("preview").innerHTML.replace(" xmlns=\"http://www.w3.org/1999/xhtml\"","").replace(" id=\"work-item\"","").replace(" id=\"caption-item\"","").replace(" id=\"title-item\"","").replace(" id=\"author-item\"","").replace(" id=\"license-item\"","").replace(" id=\"license-abbr-item\"","");
 
     var textField = window.opener.document.post.content;
 
@@ -176,10 +177,10 @@ function updateMedia() {
 
     var workItemNode = document.getElementById("work-item")
 
-    if (workItemNode.childNodes.length != 3) {
+    if (workItemNode.childNodes.length > 0) {
         workItemNode.removeChild(workItemNode.firstChild);
     }
-    workItemNode.insertBefore(newNode, workItemNode.firstChild);
+    workItemNode.appendChild(newNode);
 
     updateAltTextarea();
     updateButton();

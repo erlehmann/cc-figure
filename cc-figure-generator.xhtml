@@ -1,0 +1,514 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html5>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+    <title>Creative Commons Markup Generator, HTML5 Style</title>
+
+    <style>
+
+body {
+    font-size: 11px;
+    margin:0px auto;
+    min-width: 540px;
+    padding: 11px;
+}
+
+button {
+    width: 494px;
+}
+
+button, div.warning {
+    line-height: 1.8;
+    margin: 0px 11px 11px 11px;
+    overflow: hidden;
+    padding: 11px;
+}
+
+div#preview {
+    display: none;
+}
+
+div.warning {
+    border: 1px solid #888a85;
+    background: #ffea4f;
+    width: 470px;
+}
+
+form {
+    display: block;
+    margin: 0px 11px 11px 11px;
+}
+
+form input,
+form select,
+form textarea {
+    min-width: 300px;
+}
+
+form legend {
+    padding: 0 2px;
+    font-weight: bold;
+}
+
+form label {
+    display: inline-block;
+    line-height: 1.8;
+    vertical-align: top;
+    width: 150px; /* Width of labels */
+}
+
+form fieldset {
+    border: 1px solid #888a85;
+    margin: 0;
+    padding: 11px;
+    width: 470px;
+}
+
+form fieldset ol, p {
+    margin: 0;
+    padding: 0;
+}
+
+form fieldset li {
+    list-style: none;
+    padding: 5px;
+    margin: 0;
+}
+
+form fieldset fieldset {
+    border: none;
+    margin: 3px 0 0;
+}
+
+form fieldset fieldset legend {
+    padding: 0 0 5px;
+    font-weight: normal;
+}
+
+form fieldset fieldset label {
+    margin-left: 153px; /* Width plus 3 (html space) */
+    display: block;
+    width: auto;
+}
+
+form em {
+    font-weight: bold;
+    font-style: normal;
+    color: #f00;
+}
+
+    </style>
+
+    <script>
+        <![CDATA[
+
+// insert text into the editor window
+function insertMarkup() {
+    var textMarkup = document.getElementById("preview").innerHTML.replace(" xmlns=\"http://www.w3.org/1999/xhtml\"","");
+    var textField = window.opener.document.post.content;
+
+    if (textField.selectionStart || textField.selectionStart == '0') {
+        var startPos = textField.selectionStart;
+        var endPos = textField.selectionEnd;
+
+        textField.value = textField.value.substring(0, startPos) + textMarkup + textField.value.substring(endPos, textField.value.length);
+    } else {
+        textField.value += textMarkup;
+    }
+}
+
+function init() {
+    updateMedia();
+    updateCredits();
+    updateLicense();
+}
+
+function updateButton() {
+    var buttonNode = document.getElementsByTagName("button")[0];
+
+    if (
+        getMediaType(document.getElementById("file").value) &&
+        document.getElementById("title").value.length > 0 &&
+        document.getElementById("author").value.length > 0 &&
+        document.getElementById("source").value.length > 0 &&
+        (
+            (getMediaType(document.getElementById("file").value) == "img") && (document.getElementById("alttext").value.length > 0) ||
+            (getMediaType(document.getElementById("file").value) != "img")
+        )
+    ) {
+        buttonNode.removeAttribute("disabled");
+    } else {
+        buttonNode.setAttribute("disabled","disabled");
+    }
+
+}
+
+function updateAltTextarea() {
+    var altNode = document.getElementById("alttext");
+
+    if (getMediaType(document.getElementById("file").value) == "img") {
+        altNode.removeAttribute("disabled");
+    } else {
+        altNode.setAttribute("disabled","disabled");
+    }
+
+}
+
+function updateMedia() {
+    var NewElement = getMediaType(document.getElementById("file").value);
+    var newNode = document.createElement(NewElement);
+    newNode.setAttribute("src", document.getElementById("file").value);
+    newNode.setAttribute("itemprop", "about");
+
+    if (NewElement == "img") {
+        newNode.setAttribute("alt", document.getElementById("alttext").value);
+    } else {
+        newNode.setAttribute("controls", "controls");
+
+        var downloadLink = document.createElement("a");
+        downloadLink.setAttribute("href", document.getElementById("file").value);
+        downloadLink.textContent = "Download";
+        newNode.appendChild(downloadLink);
+    }
+
+    var figureNode = document.getElementsByTagName("figure")[0]
+
+    if (figureNode.childNodes.length != 3) {
+        figureNode.removeChild(figureNode.firstChild);
+    }
+    figureNode.insertBefore(newNode, figureNode.firstChild);
+
+    var figureNode = document.getElementsByTagName("figure")[0]
+
+    if (figureNode.childNodes.length != 3) {
+        figureNode.removeChild(figureNode.firstChild);
+    }
+    figureNode.insertBefore(newNode, figureNode.firstChild);
+
+    updateAltTextarea();
+    updateButton();
+}
+
+function getMediaType(src) {
+    var extension = src.split(".")[src.split(".").length-1];
+
+    try
+      {
+        switch(extension) {
+            case "bmp":
+            case "gif":
+            case "jpeg":
+            case "jpg":
+            case "png":
+                return("img");
+                break;
+            case "ogv":
+                return("video");
+                break;
+            case "oga":
+            case "ogg":
+                return("audio");
+                break;
+            default:
+                throw("extension_fail");
+        }
+    }
+    catch(err){
+        return(false);
+    }
+}
+
+function updateCredits() {
+    document.getElementsBySelector('[itemprop=title]')[0].textContent = document.getElementById("title").value;
+    document.getElementsBySelector('[itemprop=author]')[0].textContent = document.getElementById("author").value;
+    document.getElementsBySelector('[itemprop=author]')[0].href = document.getElementById("source").value;
+
+    updateButton();
+}
+
+function updateLicense() {
+
+    var ccAbbr = document.getElementsByTagName("abbr").item(5);
+    var ccLicense = "http://creativecommons.org/licenses/REPLACE/3.0/de/";
+
+    switch(document.getElementById("cc-license").value) {
+        case "by":
+            ccAbbr.textContent = "CC-BY";
+            ccAbbr.title = "Creative Commons Namensnennung";
+            ccLicense = ccLicense.replace("REPLACE", "by");
+            break;
+        case "by-nc":
+            ccAbbr.textContent = "CC-BY-NC";
+            ccAbbr.title = "Creative Commons Namensnennung-Keine kommerzielle Nutzung";
+            ccLicense = ccLicense.replace("REPLACE", "by-nc");
+            break;
+        case "by-nd":
+            ccAbbr.textContent = "CC-BY-ND"
+            ccAbbr.title = "Creative Commons Namensnennung-Keine Bearbeitung";
+            ccLicense = ccLicense.replace("REPLACE", "by-nd");
+            break;
+        case "by-sa":
+            ccAbbr.textContent = "CC-BY-SA"
+            ccAbbr.title = "Creative Commons Namensnennung-Weitergabe unter gleichen Bedingungen";
+            ccLicense = ccLicense.replace("REPLACE", "by-sa");
+            break;
+        case "by-nc-nd":
+            ccAbbr.textContent = "CC-BY-NC-ND"
+            ccAbbr.title = "Creative Commons Namensnennung-Keine kommerzielle Nutzung-Keine Bearbeitung";
+            ccLicense = ccLicense.replace("REPLACE", "by-nc-nd");
+            break;
+        case "by-nc-sa":
+            ccAbbr.textContent = "CC-BY-NC-SA"
+            ccAbbr.title = "Creative Commons Namensnennung-Keine kommerzielle Nutzung-Weitergabe unter gleichen Bedingungen";
+            ccLicense = ccLicense.replace("REPLACE", "by-nc-sa");
+            break;
+    }
+
+    ccAbbr.parentNode.href = ccLicense;
+}
+
+/* document.getElementsBySelector(selector)
+   - returns an array of element objects from the current document
+     matching the CSS selector. Selectors can contain element names, 
+     class names and ids and can be nested. For example:
+     
+       elements = document.getElementsBySelect('div#main p a.external')
+     
+     Will return an array of all 'a' elements with 'external' in their 
+     class attribute that are contained inside 'p' elements that are 
+     contained inside the 'div' element which has id="main"
+
+   New in version 0.4: Support for CSS2 and CSS3 attribute selectors:
+   See http://www.w3.org/TR/css3-selectors/#attribute-selectors
+
+   Version 0.4 - Simon Willison, March 25th 2003
+   -- Works in Phoenix 0.5, Mozilla 1.3, Opera 7, Internet Explorer 6, Internet Explorer 5 on Windows
+   -- Opera 7 fails 
+*/
+
+function getAllChildren(e) {
+  // Returns all children of element. Workaround required for IE5/Windows. Ugh.
+  return e.all ? e.all : e.getElementsByTagName('*');
+}
+
+document.getElementsBySelector = function(selector) {
+  // Attempt to fail gracefully in lesser browsers
+  if (!document.getElementsByTagName) {
+    return new Array();
+  }
+  // Split selector in to tokens
+  var tokens = selector.split(' ');
+  var currentContext = new Array(document);
+  for (var i = 0; i < tokens.length; i++) {
+    token = tokens[i].replace(/^\s+/,'').replace(/\s+$/,'');;
+    if (token.indexOf('#') > -1) {
+      // Token is an ID selector
+      var bits = token.split('#');
+      var tagName = bits[0];
+      var id = bits[1];
+      var element = document.getElementById(id);
+      if (tagName && element.nodeName.toLowerCase() != tagName) {
+        // tag with that ID not found, return false
+        return new Array();
+      }
+      // Set currentContext to contain just this element
+      currentContext = new Array(element);
+      continue; // Skip to next token
+    }
+    if (token.indexOf('.') > -1) {
+      // Token contains a class selector
+      var bits = token.split('.');
+      var tagName = bits[0];
+      var className = bits[1];
+      if (!tagName) {
+        tagName = '*';
+      }
+      // Get elements matching tag, filter them for class selector
+      var found = new Array;
+      var foundCount = 0;
+      for (var h = 0; h < currentContext.length; h++) {
+        var elements;
+        if (tagName == '*') {
+            elements = getAllChildren(currentContext[h]);
+        } else {
+            elements = currentContext[h].getElementsByTagName(tagName);
+        }
+        for (var j = 0; j < elements.length; j++) {
+          found[foundCount++] = elements[j];
+        }
+      }
+      currentContext = new Array;
+      var currentContextIndex = 0;
+      for (var k = 0; k < found.length; k++) {
+        if (found[k].className && found[k].className.match(new RegExp('\\b'+className+'\\b'))) {
+          currentContext[currentContextIndex++] = found[k];
+        }
+      }
+      continue; // Skip to next token
+    }
+    // Code to deal with attribute selectors
+    if (token.match(/^(\w*)\[(\w+)([=~\|\^\$\*]?)=?"?([^\]"]*)"?\]$/)) {
+      var tagName = RegExp.$1;
+      var attrName = RegExp.$2;
+      var attrOperator = RegExp.$3;
+      var attrValue = RegExp.$4;
+      if (!tagName) {
+        tagName = '*';
+      }
+      // Grab all of the tagName elements within current context
+      var found = new Array;
+      var foundCount = 0;
+      for (var h = 0; h < currentContext.length; h++) {
+        var elements;
+        if (tagName == '*') {
+            elements = getAllChildren(currentContext[h]);
+        } else {
+            elements = currentContext[h].getElementsByTagName(tagName);
+        }
+        for (var j = 0; j < elements.length; j++) {
+          found[foundCount++] = elements[j];
+        }
+      }
+      currentContext = new Array;
+      var currentContextIndex = 0;
+      var checkFunction; // This function will be used to filter the elements
+      switch (attrOperator) {
+        case '=': // Equality
+          checkFunction = function(e) { return (e.getAttribute(attrName) == attrValue); };
+          break;
+        case '~': // Match one of space seperated words 
+          checkFunction = function(e) { return (e.getAttribute(attrName).match(new RegExp('\\b'+attrValue+'\\b'))); };
+          break;
+        case '|': // Match start with value followed by optional hyphen
+          checkFunction = function(e) { return (e.getAttribute(attrName).match(new RegExp('^'+attrValue+'-?'))); };
+          break;
+        case '^': // Match starts with value
+          checkFunction = function(e) { return (e.getAttribute(attrName).indexOf(attrValue) == 0); };
+          break;
+        case '$': // Match ends with value - fails with "Warning" in Opera 7
+          checkFunction = function(e) { return (e.getAttribute(attrName).lastIndexOf(attrValue) == e.getAttribute(attrName).length - attrValue.length); };
+          break;
+        case '*': // Match ends with value
+          checkFunction = function(e) { return (e.getAttribute(attrName).indexOf(attrValue) > -1); };
+          break;
+        default :
+          // Just test for existence of attribute
+          checkFunction = function(e) { return e.getAttribute(attrName); };
+      }
+      currentContext = new Array;
+      var currentContextIndex = 0;
+      for (var k = 0; k < found.length; k++) {
+        if (checkFunction(found[k])) {
+          currentContext[currentContextIndex++] = found[k];
+        }
+      }
+      // alert('Attribute Selector: '+tagName+' '+attrName+' '+attrOperator+' '+attrValue);
+      continue; // Skip to next token
+    }
+    // If we get here, token is JUST an element (not a class or ID selector)
+    tagName = token;
+    var found = new Array;
+    var foundCount = 0;
+    for (var h = 0; h < currentContext.length; h++) {
+      var elements = currentContext[h].getElementsByTagName(tagName);
+      for (var j = 0; j < elements.length; j++) {
+        found[foundCount++] = elements[j];
+      }
+    }
+    currentContext = found;
+  }
+  return currentContext;
+}
+
+        ]]>
+    </script>
+
+</head>
+
+<body onload="init()">
+
+    <form action="">
+
+        <fieldset>
+
+            <legend>Mediendetails</legend>
+
+            <ol>
+                <li>
+                    <label for="file">
+                        Bild, Ton, Video (<abbr title="Uniform Resource Locator">URL</abbr>)
+                    </label>
+                    <input type="url" id="file" onchange="updateMedia()" onkeyup="updateMedia()" value=""/>
+                </li>
+                <li>
+                    <label for="title">
+                        Titel
+                    </label>
+                    <input type="text" id="title" onchange="updateCredits()" onkeyup="updateCredits()" value=""/>
+                </li>
+                <li>
+                    <label for="alttext">
+                        Alternativtext
+                    </label>
+                    <textarea id="alttext" onchange="updateMedia()" onkeyup="updateMedia()" value="" disabled="disabled"/>
+                </li>
+                <li>
+                    <label for="author">
+                        Urheber
+                    </label>
+                    <input type="text" id="author" onchange="updateCredits()" onkeyup="updateCredits()" value=""/>
+                </li>
+                <li>
+                    <label for="source">
+                        Quelle (<abbr title="Uniform Resource Locator">URL</abbr>)
+                    </label>
+                    <input type="url" id="source" onchange="updateCredits()" onkeyup="updateCredits()" value=""/>
+                </li>
+                <li>
+                    <label for="cc-license">
+                        <abbr title="Creative Commons">CC</abbr>-Lizenz
+                    </label>
+                    <select id="cc-license" onchange="updateLicense()">
+                        <option value="by">BY</option>
+                        <option value="by-nc">BY-NC</option>
+                        <option value="by-nd">BY-ND</option>
+                        <option value="by-sa">BY-SA</option>
+                        <option value="by-nc-nd">BY-NC-ND</option>
+                        <option value="by-nc-sa">BY-NC-SA</option>
+                    </select>
+                </li>
+            </ol>
+
+        </fieldset>
+
+    </form>
+
+    <div class="warning">
+        Bilddateien müssen in einem der Formate BMP, GIF, JPG oder PNG sein und die entsprechende Endung haben. Tondateien müssen in Ogg Vorbis (Endung ogg, <abbr title="Ogg Audio">oga</abbr>) und Videos in Ogg Vorbis + Theora (Endung <abbr title="Ogg Video">ogv</abbr>) kodiert sein.
+    </div>
+
+    <button disabled="disabled" onclick="insertMarkup()">
+        Markup einfügen
+    </button>
+
+    <div id="preview">
+
+<figure item="work">
+    <legend>
+        <span itemprop="title"/>
+        <a itemprop="author" href=""/>
+        <small>
+            <a itemprop="license" href="">
+                <abbr title=""/>
+            </a>
+        </small>
+    </legend>
+</figure>
+
+    </div>
+
+</body>
+
+</html>

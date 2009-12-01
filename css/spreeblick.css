@@ -52,6 +52,7 @@
     [itemscope="itemscope"] dt small a,
     [itemscope="itemscope"] dt small a abbr {
             color: transparent;
+            border: none;
             display: block;
             height: 22px;
             margin: 0;

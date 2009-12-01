@@ -1,78 +1,46 @@
 [itemscope="itemscope"] {
     display: block;
-    position: relative;
     margin: 0;
-    top: 0px;
-    left: 0px;
 }
 
 [itemscope=itemscope] dd,
 [itemscope=itemscope] dt {
-    display: block;
-    margin: 0;
 }
 
 [itemscope="itemscope"] [itemprop=work] {
-    display: block;
 }
 
 [itemscope="itemscope"] dt {
-    display: block;
-    margin-top: -22px;
-    overflow: hidden;
-    width: 22px;
 }
 
 [itemscope="itemscope"] dt:hover {
-    color: inherit;
-    width: 100%;
 }
 
 [itemscope="itemscope"] dt,
 [itemscope="itemscope"] dt * {
-    height: 22px;
-    line-height: 22px;
 }
 
     [itemscope="itemscope"] dt [itemprop=title] {
-        display: none;
     }
 
     [itemscope="itemscope"] dt [itemprop=author] {
-        background: rgba(190, 190, 190, 0.6);
-        color: inherit;
-        display: none;
-        margin-left: 20px;
-        padding-left: 0.5em;
-        padding-right: 0.5em;
     }
 
     [itemscope="itemscope"] dt:hover [itemprop=author] {
-        display: inline-block;
     }
 
     [itemscope="itemscope"] dt small {
-        background: rgba(190, 190, 190, 0.6);
-        left: 0px;
-        position: absolute;
     }
 
     [itemscope="itemscope"] dt:hover small {
-        bottom: 0px;
     }
 
     [itemscope="itemscope"] dt small,
     [itemscope="itemscope"] dt small a,
     [itemscope="itemscope"] dt small a abbr {
-        border: none !important;
-        display: inline-block;
-        height: 22px;
-        width: 22px;
     }
 
         [itemscope="itemscope"] dt small a {
-            color: transparent;
-            overflow: hidden;
         }
 
         [itemscope="itemscope"] dt small a[href^="http://creativecommons.org/licenses/"] {

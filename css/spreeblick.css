@@ -1,6 +1,8 @@
 [itemscope="itemscope"] {
     display: block;
     margin: 0;
+    padding: 0;
+    position: relative;
 }
 
 [itemscope=itemscope] dd,
@@ -13,11 +15,12 @@
 
 [itemscope="itemscope"] dt {
     background: rgba(190, 190, 190, 0.6);
+    bottom: 0px;
     display: inline-block;
     height: 22px;
+    left: 0px;
     overflow: hidden;
-    position: relative;
-    top: -22px;
+    position: absolute;
     width: 22px;
 }
 
@@ -37,8 +40,7 @@
         height: 22px;
         left: 22px;
         line-height: 22px;
-        padding-left: 0.5em;
-        padding-right: 0.5em;
+        padding: 0 0.5em;
         position: relative;
         text-decoration: underline;
     }

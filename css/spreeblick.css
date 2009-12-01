@@ -4,44 +4,60 @@
 }
 
 [itemscope=itemscope] dd,
-[itemscope=itemscope] dt {
-}
-
+[itemscope=itemscope] dt,
 [itemscope="itemscope"] [itemprop=work] {
+    display: block;
+    margin: 0;
+    padding: 0;
 }
 
 [itemscope="itemscope"] dt {
+    background: rgba(190, 190, 190, 0.6);
+    display: inline-block;
+    height: 22px;
+    overflow: hidden;
+    position: relative;
+    top: -22px;
+    width: 22px;
 }
 
 [itemscope="itemscope"] dt:hover {
-}
-
-[itemscope="itemscope"] dt,
-[itemscope="itemscope"] dt * {
+    padding-right: 22px;
+    width: inherit;
 }
 
     [itemscope="itemscope"] dt [itemprop=title] {
+        display: none;
     }
 
     [itemscope="itemscope"] dt [itemprop=author] {
-    }
-
-    [itemscope="itemscope"] dt:hover [itemprop=author] {
+        color: inherit;
+        display: block;
+        font-size: 12px;
+        height: 22px;
+        left: 22px;
+        line-height: 22px;
+        padding-left: 0.5em;
+        padding-right: 0.5em;
+        position: relative;
+        text-decoration: underline;
     }
 
     [itemscope="itemscope"] dt small {
-    }
-
-    [itemscope="itemscope"] dt:hover small {
+        position: relative;
+        top: -22px;
     }
 
     [itemscope="itemscope"] dt small,
     [itemscope="itemscope"] dt small a,
     [itemscope="itemscope"] dt small a abbr {
+            color: transparent;
+            display: block;
+            height: 22px;
+            margin: 0;
+            padding: 0;
+            width: 22px;
     }
-
-        [itemscope="itemscope"] dt small a {
-        }
 
         [itemscope="itemscope"] dt small a[href^="http://creativecommons.org/licenses/"] {
             background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAQAAABuvaSwAAAAAnNCSVQICFXsRgQAAAAJcEhZcwAABJ0AAASdAXw0a6EAAAAZdEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwaAAABmklEQVQoz5XTPWiTURTG8d8b/GjEii2VKoqKi2DFwU9wUkTdFIeKIEWcpIOTiA4OLgVdXFJwEZHoIII0TiJipZJFrIgGKXQQCRg6RKREjEjMcQnmTVPB3jNc7j1/7nk49zlJ+P+1rPsqydqFD1HvSkUq9MkpaQihoWRcfzqftGUkx9y10Yy33vlttz2GzBmNQtfLrmqqGu6odNKccOvvubXt1/Da+tAZBkwKx1OwHjNqti1EQ7DBN2Vr2vBl4cJiaAjOCdfbcMF3mWC7O6qmDFntms9KzgYZNU/bcFkxBM+UjXjiilFNl4yZsCIoqrRgA0IuGNRws1W66H1KSE5YFzKoa+pFTV0/ydYk66s+kt5kE1ilqd7qs49KIcj75bEfxp0RJn0yKxtMm21rzmtYG6x0Wt5Fy4ODbhuzJejx06M2PCzc+2frbgjn0z9YEE4tih7Q8FyShgdVzRvpQk+omLe5wxvBIV+ECTtkQpCx00Oh4ugCI7XcfF8INa9MqQnhQdrRSedYJYcdsc9eTHvjRbzsyC5lBjNLYP0B5PQk1O2dJT8AAAAASUVORK5CYII=");

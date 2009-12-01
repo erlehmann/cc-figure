@@ -54,7 +54,12 @@ if (cc_figure_toolbar) {
 }
 
 function cc_figure_button_pressed(querystr) {
-    var url = "<?php bloginfo('url'); ?>/wp-content/plugins/cc-figure/cc-figure-generator.xhtml";
+    var url = "<?php
+        $url = get_bloginfo('url');
+        if ($_SERVER["HTTPS"] == "on") { $url = str_ireplace("http://", "https://", $url); };
+        echo $url
+        ?>/wp-content/plugins/cc-figure/cc-figure-generator.xhtml";
+
     var name = "cc_figure_popup";
     var w = 540;
     var h = 428;
@@ -77,8 +82,7 @@ function cc_figure_button_pressed(querystr) {
 
 function cc_figure_add_css() {
     if (get_option('cc_figure_css')) {
-        echo '<link rel="stylesheet" href="' . rtrim(get_settings('siteurl'), '/') . '/wp-content/plugins/cc-figure/css/'.get_option('cc_figure_css').'" type="text/css"/>';
-        // TODO: use bloginfo URL here
+        echo '<link rel="stylesheet" href="' . bloginfo('url') . '/wp-content/plugins/cc-figure/css/'.get_option('cc_figure_css').'" type="text/css"/>';
     }
 }
 

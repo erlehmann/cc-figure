@@ -18,13 +18,20 @@
 
 [itemscope="itemscope"] dt {
     display: block;
-    line-height: 22px;
     margin-top: -22px;
+    overflow: hidden;
+    width: 22px;
 }
 
 [itemscope="itemscope"] dt:hover {
     color: inherit;
     width: 100%;
+}
+
+[itemscope="itemscope"] dt,
+[itemscope="itemscope"] dt * {
+    height: 22px;
+    line-height: 22px;
 }
 
     [itemscope="itemscope"] dt [itemprop=title] {

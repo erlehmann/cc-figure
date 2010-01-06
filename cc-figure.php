@@ -31,12 +31,14 @@ Version: 0.5
 // create database entry on install
 function cc_figure_register_settings() {
     register_setting('cc_figure_options', 'cc_figure_css');
+    register_setting('cc_figure_options', 'cc_figure_metadata_standard');
     // TODO: add default styling ?
 }
 
 // delete database entry on uninstall
 function cc_figure_uninstall(){
     delete_option('cc_figure_css');
+    delete_option('cc_figure_metadata_standard');
 }
 
 // uninstall hooks

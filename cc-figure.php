@@ -9,7 +9,7 @@ Version: 0.5
 */
 
 /*  Copyright 2009  Nils Dagsson Moskopp (erlehmann)
-    (email : nils+wordpress@dieweltistgarnichtso.net)
+    (email : nils+cc-figure@dieweltistgarnichtso.net)
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by

@@ -127,11 +127,22 @@ function cc_figure_plugin_admin() {
         label { display: inline-block; min-width: 160px; }
     </style>
     <div class="wrap">
-    <h2>CC Figure: Stylesheet</h2>
     <form method="post" action="options.php">';
         settings_fields('cc_figure_options');
+    echo '
+        <h2>CC Figure: Metadata Standard</h2>
+        <ul>
+            <li>
+                <label><input type="radio" name="cc_figure_metadata_standard" value="microdata"/> Microdata (HTML5, XHTML5)</label>
+            </li>
+            <li>
+                <label><input type="radio" name="cc_figure_metadata_standard" value="rdfa"/> RDFa (XHTML only)</label>
+            </li>
+        </ul>
+    '
     // TODO: "Kein Stylesheet" selected when in "" database
-    echo'   
+    echo '
+        <h2>CC Figure: Stylesheet</h2>
         <ul>'.cc_figure_admin_css().'
             <li>
                 <label><input type="radio" name="cc_figure_css" value=""/> Kein Stylesheet</label>

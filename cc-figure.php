@@ -145,7 +145,7 @@ function cc_figure_plugin_admin() {
         <h2>Stylesheet</h2>
         <ul>'.cc_figure_admin_css().'
             <li>
-                <label><input type="radio" name="cc_figure_css" value=""/> Kein Stylesheet</label>
+                <label><input type="radio" name="cc_figure_css" value="" '.cc_figure_admin_checked("cc_figure_css","").' /> Kein Stylesheet</label>
             </li>
         </ul>
         <div class="submit">
@@ -175,6 +175,13 @@ function cc_figure_admin_css() {
     }
     closedir($handle);
     return $inputs;
+}
+
+// output checked attribute if appropriate
+function cc_figure_admin_checked(key, value) {
+    if (get_option($key) == value) {
+        echo 'checked="checked"';
+    }
 }
 
 // add admin pages

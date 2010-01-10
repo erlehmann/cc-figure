@@ -45,7 +45,6 @@ function cc_figure_uninstall(){
 }
 
 // install hook
-register_install_hook(__FILE__,'cc_figure_install');
 register_activation_hook(__FILE__,'cc_figure_install');
 
 // uninstall hooks

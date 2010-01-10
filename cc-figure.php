@@ -135,7 +135,7 @@ function cc_figure_plugin_admin() {
         <h2>Metadata-Standard</h2>
         <ul>
             <li>
-                <label><input type="radio" name="cc_figure_metadata_standard" value="microdata"/> Microdata (HTML5, XHTML5)</label>
+                <label><input type="radio" name="cc_figure_metadata_standard" value="microdata" '.cc_figure_admin_checked("figure_metadata_standard","").' '.cc_figure_admin_checked("figure_metadata_standard","microdata").' /> Microdata (HTML5, XHTML5)</label>
             </li>
             <li>
                 <label><input type="radio" name="cc_figure_metadata_standard" value="rdfa"/> RDFa (XHTML only)</label>

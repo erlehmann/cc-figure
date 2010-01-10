@@ -178,8 +178,8 @@ function cc_figure_admin_css() {
 }
 
 // output checked attribute if appropriate
-function cc_figure_admin_checked(key, value) {
-    if (get_option($key) == value) {
+function cc_figure_admin_checked($key, $value) {
+    if (get_option($key) == $value) {
         echo 'checked="checked"';
     }
 }

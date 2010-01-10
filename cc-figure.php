@@ -28,11 +28,14 @@ Version: 0.5
 
 /* install and uninstall */
 
-// create database entry on install
+// create default database entry on install
+function cc_figure_install() {
+    update_option( 'cc_figure_metadata_standard', 'microdata' );
+}
+
 function cc_figure_register_settings() {
     register_setting('cc_figure_options', 'cc_figure_css');
     register_setting('cc_figure_options', 'cc_figure_metadata_standard');
-    update_option( 'cc_figure_metadata_standard', 'microdata' );
 }
 
 // delete database entry on uninstall
@@ -40,6 +43,10 @@ function cc_figure_uninstall(){
     delete_option('cc_figure_css');
     delete_option('cc_figure_metadata_standard');
 }
+
+// install hook
+register_install_hook(__FILE__,'cc_figure_install');
+register_activation_hook(__FILE__,'cc_figure_install');
 
 // uninstall hooks
 register_uninstall_hook(__FILE__, 'cc_figure_uninstall');

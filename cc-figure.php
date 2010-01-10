@@ -122,11 +122,13 @@ function cc_figure_plugin_menu() {
 // actual admin page
 function cc_figure_plugin_admin() {
     echo '
-    <style type="text/css" scoped="scoped">
-        img { vertical-align: middle; }
-        label { display: inline-block; min-width: 160px; }
-    </style>
-    <div class="wrap">
+<style type="text/css" scoped="scoped">
+    img { vertical-align: middle; }
+    label { display: inline-block; min-width: 160px; }
+</style>
+
+<div class="wrap">
+
     <form method="post" action="options.php">';
         settings_fields('cc_figure_options');
     echo '
@@ -139,18 +141,18 @@ function cc_figure_plugin_admin() {
                 <label><input type="radio" name="cc_figure_metadata_standard" value="rdfa"/> RDFa (XHTML only)</label>
             </li>
         </ul>
-    '
-    // TODO: "Kein Stylesheet" selected when in "" database
-    echo '
+
         <h2>Stylesheet</h2>
         <ul>'.cc_figure_admin_css().'
             <li>
                 <label><input type="radio" name="cc_figure_css" value="" '.cc_figure_admin_checked("cc_figure_css","").' /> Kein Stylesheet</label>
             </li>
         </ul>
+
         <div class="submit">
             <input type="submit" class="button-primary" value="'._('Save Changes').'" />
         </div>
+
     </form>
 </div>';
 }

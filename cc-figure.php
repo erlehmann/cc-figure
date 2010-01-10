@@ -130,7 +130,7 @@ function cc_figure_plugin_admin() {
     <form method="post" action="options.php">';
         settings_fields('cc_figure_options');
     echo '
-        <h2>CC Figure: Metadata Standard</h2>
+        <h2>Metadata-Standard</h2>
         <ul>
             <li>
                 <label><input type="radio" name="cc_figure_metadata_standard" value="microdata"/> Microdata (HTML5, XHTML5)</label>
@@ -142,7 +142,7 @@ function cc_figure_plugin_admin() {
     '
     // TODO: "Kein Stylesheet" selected when in "" database
     echo '
-        <h2>CC Figure: Stylesheet</h2>
+        <h2>Stylesheet</h2>
         <ul>'.cc_figure_admin_css().'
             <li>
                 <label><input type="radio" name="cc_figure_css" value=""/> Kein Stylesheet</label>

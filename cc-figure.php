@@ -32,7 +32,7 @@ Version: 0.5
 function cc_figure_register_settings() {
     register_setting('cc_figure_options', 'cc_figure_css');
     register_setting('cc_figure_options', 'cc_figure_metadata_standard');
-    // TODO: add default styling ?
+    update_option( 'figure_metadata_standard', 'microdata' );
 }
 
 // delete database entry on uninstall
@@ -56,7 +56,7 @@ function cc_figure_add_quicktag() {
 ?>
 
 <script type="text/javascript">
-    <![CDATA[
+//    <![CDATA[
 
 var cc_figure_toolbar = document.getElementById("ed_toolbar");
 
@@ -77,8 +77,10 @@ function cc_figure_button_pressed(querystr) {
     var url = "<?php
         $url = get_bloginfo('url');
         if ($_SERVER["HTTPS"] == "on") { $url = str_ireplace("http://", "https://", $url); };
-        echo $url
-        ?>/wp-content/plugins/cc-figure/cc-figure-generator-<?php echo get_option("cc_figure_metadata_standard"); ?>.xhtml";
+        echo $url;
+        ?>/wp-content/plugins/cc-figure/cc-figure-generator-<?php $microdata = get_option("cc_figure_metadata_standard");
+        echo $microdata;
+        ?>.xhtml";
 
     var name = "cc_figure_popup";
     var w = 540;
@@ -93,7 +95,7 @@ function cc_figure_button_pressed(querystr) {
     return false;
 }
 
-    ]]>
+//    ]]>
 </script>
 
 <?php

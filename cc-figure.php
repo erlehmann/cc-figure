@@ -133,6 +133,9 @@ function cc_figure_plugin_admin() {
         settings_fields('cc_figure_options');
     echo '
         <h2>Metadata-Standard</h2>
+        <p>
+            Ändere die Einstellungen zum Metadata-Standard nur, wenn du weißt, was du tust.
+        </p>
         <ul>
             <li>
                 <label><input type="radio" name="cc_figure_metadata_standard" value="microdata" '.cc_figure_admin_checked("figure_metadata_standard","").' '.cc_figure_admin_checked("figure_metadata_standard","microdata").' /> Microdata (HTML5, XHTML5)</label>
@@ -143,6 +146,9 @@ function cc_figure_plugin_admin() {
         </ul>
 
         <h2>Stylesheet</h2>
+        <p>
+            Ein Stylesheet beeinflusst das Aussehen des 
+        </p>
         <ul>'.cc_figure_admin_css().'
             <li>
                 <label><input type="radio" name="cc_figure_css" value="" '.cc_figure_admin_checked("cc_figure_css","").' /> Kein Stylesheet</label>

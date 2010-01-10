@@ -32,7 +32,7 @@ Version: 0.5
 function cc_figure_register_settings() {
     register_setting('cc_figure_options', 'cc_figure_css');
     register_setting('cc_figure_options', 'cc_figure_metadata_standard');
-    update_option( 'figure_metadata_standard', 'microdata' );
+    update_option( 'cc_figure_metadata_standard', 'microdata' );
 }
 
 // delete database entry on uninstall
@@ -75,12 +75,11 @@ if (cc_figure_toolbar) {
 
 function cc_figure_button_pressed(querystr) {
     var url = "<?php
+
         $url = get_bloginfo('url');
         if ($_SERVER["HTTPS"] == "on") { $url = str_ireplace("http://", "https://", $url); };
-        echo $url;
-        ?>/wp-content/plugins/cc-figure/cc-figure-generator-<?php $microdata = get_option("cc_figure_metadata_standard");
-        echo $microdata;
-        ?>.xhtml";
+        echo $url.'/wp-content/plugins/cc-figure/cc-figure-generator-'.get_option("cc_figure_metadata_standard").'.xhtml';
+        ?>";
 
     var name = "cc_figure_popup";
     var w = 540;
@@ -154,7 +153,7 @@ function cc_figure_plugin_admin() {
         </p>
         <ul>
             <li>
-                <label><input type="radio" name="cc_figure_metadata_standard" value="microdata" '.cc_figure_admin_checked("cc_figure_metadata_standard","").' '.cc_figure_admin_checked("cc_figure_metadata_standard","microdata").' /> Microdata (HTML5, XHTML5)</label>
+                <label><input type="radio" name="cc_figure_metadata_standard" value="microdata" '.cc_figure_admin_checked("cc_figure_metadata_standard","microdata").' /> Microdata (HTML5, XHTML5)</label>
             </li>
             <li>
                 <label><input type="radio" name="cc_figure_metadata_standard" value="rdfa" '.cc_figure_admin_checked("cc_figure_metadata_standard","rdfa").'/> RDFa (XHTML only)</label>

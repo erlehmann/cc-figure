@@ -56,7 +56,7 @@ function cc_figure_add_quicktag() {
 ?>
 
 <script type="text/javascript">
-// <![CDATA[
+    <![CDATA[
 
 var cc_figure_toolbar = document.getElementById("ed_toolbar");
 
@@ -93,7 +93,7 @@ function cc_figure_button_pressed(querystr) {
     return false;
 }
 
-// ]]>
+    ]]>
 </script>
 
 <?php

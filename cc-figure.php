@@ -143,10 +143,6 @@ function cc_figure_plugin_admin() {
             </li>
         </ul>
 
-        <div class="submit">
-            <input type="submit" class="button-primary" value="'._('Save Changes').'" />
-        </div>
-
         <h2>Metadata-Standard</h2>
         <p>
             Ändere die Einstellungen zum Metadata-Standard nur, wenn du weißt, was du tust.
@@ -160,6 +156,9 @@ function cc_figure_plugin_admin() {
             </li>
         </ul>
 
+        <div class="submit">
+            <input type="submit" class="button-primary" value="'._('Änderungen speichern').'" />
+        </div>
     </form>
 </div>';
 }

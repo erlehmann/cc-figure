@@ -78,7 +78,7 @@ function cc_figure_button_pressed(querystr) {
         $url = get_bloginfo('url');
         if ($_SERVER["HTTPS"] == "on") { $url = str_ireplace("http://", "https://", $url); };
         echo $url
-        ?>/wp-content/plugins/cc-figure/cc-figure-generator.xhtml";
+        ?>/wp-content/plugins/cc-figure/cc-figure-generator-<?php echo get_option("cc_figure_metadata_standard"); ?>.xhtml";
 
     var name = "cc_figure_popup";
     var w = 540;
@@ -132,22 +132,9 @@ function cc_figure_plugin_admin() {
     <form method="post" action="options.php">';
         settings_fields('cc_figure_options');
     echo '
-        <h2>Metadata-Standard</h2>
-        <p>
-            Ändere die Einstellungen zum Metadata-Standard nur, wenn du weißt, was du tust.
-        </p>
-        <ul>
-            <li>
-                <label><input type="radio" name="cc_figure_metadata_standard" value="microdata" '.cc_figure_admin_checked("figure_metadata_standard","").' '.cc_figure_admin_checked("figure_metadata_standard","microdata").' /> Microdata (HTML5, XHTML5)</label>
-            </li>
-            <li>
-                <label><input type="radio" name="cc_figure_metadata_standard" value="rdfa"/> RDFa (XHTML only)</label>
-            </li>
-        </ul>
-
         <h2>Stylesheet</h2>
         <p>
-            Ein Stylesheet beeinflusst das Aussehen des 
+            Ein Stylesheet beeinflusst das Aussehen des Lizenzhinweises.
         </p>
         <ul>'.cc_figure_admin_css().'
             <li>
@@ -158,6 +145,19 @@ function cc_figure_plugin_admin() {
         <div class="submit">
             <input type="submit" class="button-primary" value="'._('Save Changes').'" />
         </div>
+
+        <h2>Metadata-Standard</h2>
+        <p>
+            Ändere die Einstellungen zum Metadata-Standard nur, wenn du weißt, was du tust.
+        </p>
+        <ul>
+            <li>
+                <label><input type="radio" name="cc_figure_metadata_standard" value="microdata" '.cc_figure_admin_checked("cc_figure_metadata_standard","").' '.cc_figure_admin_checked("cc_figure_metadata_standard","microdata").' /> Microdata (HTML5, XHTML5)</label>
+            </li>
+            <li>
+                <label><input type="radio" name="cc_figure_metadata_standard" value="rdfa" '.cc_figure_admin_checked("cc_figure_metadata_standard","rdfa").'/> RDFa (XHTML only)</label>
+            </li>
+        </ul>
 
     </form>
 </div>';

@@ -6,8 +6,8 @@
     position: relative;
 }
 
-[itemscope=itemscope] dd,
-[itemscope=itemscope] dt,
+[itemscope] dd,
+[itemscope] dt,
 [itemscope="itemscope"] [itemprop=work],
 [about] dd,
 [about] dt,

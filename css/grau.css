@@ -1,4 +1,4 @@
-[itemscope=itemscope],
+[itemscope],
 [about] {
     border: 1px solid #888a85;
     background: #eeeeec;
@@ -6,9 +6,9 @@
     padding: 11px;
 }
 
-[itemscope=itemscope],
-[itemscope=itemscope] dd,
-[itemscope=itemscope] dt,
+[itemscope],
+[itemscope] dd,
+[itemscope] dt,
 [about],
 [about] dd,
 [about] dt {
@@ -16,14 +16,14 @@
     margin: 0;
 }
 
-[itemscope=itemscope] [itemprop=work],
+[itemscope] [itemprop=work],
 [about] dd * {
     border: 1px solid #888A85;
     display: block;
     margin: auto auto 0.5em;
 }
 
-[itemscope=itemscope] dt,
+[itemscope] dt,
 [about] dt {
     text-align: center;
 }

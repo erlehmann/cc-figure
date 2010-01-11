@@ -1,0 +1,32 @@
+=== CC Figure ===
+Contributors: erlehmann
+Tags: creative commons
+Requires at least:
+Tested up to: 2.8
+Stable tag:
+
+CC Figure generiert Markup zur Creative-Commons-Lizenzauszeichnung und dekoriert es schön.
+
+== Installation ==
+
+1. Lade das Verzeichnis 'cc-figure' in das Verzeichnis '/wp-content/plugins/' auf dem Server hoch.
+2. Aktiviere das Plugin im 'Plugin'-Menü in WordPress.
+
+== Frequently Asked Questions ==
+
+= Wie komme ich zum Markup-Generator ? =
+
+Ein Button mit der Aufschrift „CC Figure“ sollte im Wordpress-Artikeleditor erscheinen. Beim Anklicken öffnet sich ein Popup-Fenster bzw. ein neues Tab, in dem man die Daten eingibt.
+
+= Das <figure>-Element ist nicht Bestandteil von HTML4 =
+
+Allerdings. Es ist jedoch in (X)HTML5 enthalten und kann in aktuellen Webseiten problemlos eingesetzt werden.
+
+= Warum ist das Standardformat nicht RDFa ? =
+
+RDFa kann man nicht valide in HTML einbetten, da dieses keine Namespaces kennt.
+HTML5-Microdata hingegen ist sowohl in HTML als auch in XHTML verwendbar.
+
+= Aber Creative Commons / Google / Yahoo nutzt RDFa ! =
+
+Stimmt. Wenn du also ein Blog hast, das lupenreines XHTML ausgibt, stell es doch einfach um.

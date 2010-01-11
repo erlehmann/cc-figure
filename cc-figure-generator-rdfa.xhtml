@@ -21,7 +21,7 @@
 
 <head>
 
-    <title>Creative Commons Markup Generator, HTML5 Style</title>
+    <title>Creative Commons Markup Generator, RDFa Style</title>
 
     <style>
 
@@ -179,7 +179,9 @@ function updateMedia() {
     var NewElement = getMediaType(document.getElementById("file").value);
     var newNode = document.createElement(NewElement);
     newNode.setAttribute("src", document.getElementById("file").value);
-    newNode.setAttribute("itemprop", "work");
+
+    var figureNode = document.getElementById("caption-item").parentNode;
+    figureNode.setAttribute("about", document.getElementById("file").value);
 
     if (NewElement == "img") {
         newNode.setAttribute("alt", document.getElementById("alttext").value);
@@ -355,13 +357,13 @@ function updateLicense() {
 
     <div id="preview">
 
-<figure itemscope="itemscope" itemtype="http://n.whatwg.org/work">
+<figure xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/">
     <dd id="work-item"/>
-    <dt id="caption-item">
-        <span id="title-item" itemprop="title"/>
-        <a id="author-item" href="" itemprop="author"/>
+    <dt id="caption-item" >
+        <span id="title-item" href="http://purl.org/dc/dcmitype/Text" property="dc:title" rel="dc:type"/>
+        <a id="author-item" href="" property="cc:attributionName" rel="cc:attributionURL"/>
         <small>
-            <a id="license-item" href="" itemprop="license">
+            <a id="license-item" href="" rel="license">
                 <abbr id="license-abbr-item" title=""/>
             </a>
         </small>

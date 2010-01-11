@@ -155,10 +155,10 @@ function cc_figure_plugin_admin() {
         </p>
         <ul>
             <li>
-                <label><input type="radio" name="cc_figure_metadata_standard" value="microdata" '.cc_figure_admin_checked("cc_figure_metadata_standard","microdata").' /> Microdata (HTML5, XHTML5)</label>
+                <label><input type="radio" name="cc_figure_metadata_standard" value="microdata" '.cc_figure_admin_checked("cc_figure_metadata_standard","microdata").' /> Microdata (<abbr title="Hypertext Markup Language">HTML</abbr>5, <abbr title="Extensible Hypertext Markup Language">XHTML</abbr>5)</label>
             </li>
             <li>
-                <label><input type="radio" name="cc_figure_metadata_standard" value="rdfa" '.cc_figure_admin_checked("cc_figure_metadata_standard","rdfa").'/> RDFa (XHTML only)</label>
+                <label><input type="radio" name="cc_figure_metadata_standard" value="rdfa" '.cc_figure_admin_checked("cc_figure_metadata_standard","rdfa").'/> <abbr title="Resource Description Framework in attributes">RDFa</abbr> (<abbr title="Extensible Hypertext Markup Language">XHTML</abbr> only)</label>
             </li>
         </ul>
 

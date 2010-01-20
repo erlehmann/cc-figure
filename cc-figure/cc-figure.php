@@ -109,7 +109,7 @@ function cc_figure_button_pressed(querystr) {
 
 function cc_figure_add_css() {
     if (get_option('cc_figure_css')) {
-        echo '<link rel="stylesheet" href="' . bloginfo('url') . '/wp-content/plugins/cc-figure/css/'.get_option('cc_figure_css').'" type="text/css"/>';
+        echo '<link rel="stylesheet" href="' . get_bloginfo('url') . '/wp-content/plugins/cc-figure/css/'.get_option('cc_figure_css').'" type="text/css"/>';
     }
 }
 

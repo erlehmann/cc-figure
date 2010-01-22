@@ -1,11 +1,11 @@
 <?php
 /*
 Plugin Name: CC Figure
-Plugin URI: 
+Plugin URI: http://blog.dieweltistgarnichtso.net/html5-cc-plugin-fur-wordpress-version-0-6
 Description: 
 Author: Nils Dagsson Moskopp (erlehmann)
 Author URI: http://dieweltistgarnichtso.net/
-Version: 0.6.1
+Version: 0.6.2
 */
 
 /*  Copyright 2009  Nils Dagsson Moskopp (erlehmann)

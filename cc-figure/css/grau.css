@@ -2,7 +2,7 @@
 [about] {
     border: 1px solid #888a85;
     background: #eeeeec;
-    overflow: hidden;
+    overflow-x: hidden;
     padding: 11px;
 }
 
